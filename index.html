@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tennis planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Tennis planner</h1>
+    <hr>
+    <form action="index.html">
+      <input type="number" name="courtCount" placeholder="Court count..." min="1"><br>
+      <input type="number" name="subCount" placeholder="Substitute count..."><br>
+      <input type="date" name="startDate"><br>
+      <input type="number" name="matchDayCount" placeholder="Match day count..."><br><br>
+      <label for="selectSun">Sunday</label>
+      <input type="checkbox" name="selectSun"><br>
+      <label for="selectMon">Monday</label>
+      <input type="checkbox" name="selectMon"><br>
+      <label for="selectTue">Tuesday</label>
+      <input type="checkbox" name="selectTue"><br>
+      <label for="selectWed">Wednesday</label>
+      <input type="checkbox" name="selectWed"><br>
+      <label for="selectThu">Thursday</label>
+      <input type="checkbox" name="selectThu"><br>
+      <label for="selectFri">Friday</label>
+      <input type="checkbox" name="selectFri"><br>
+      <label for="selectSat">Saturday</label>
+      <input type="checkbox" name="selectSat"><br>
+      <ul id="playerList" style="list-style-type:none;">
+      </ul>
+      <input type="text" id="playerToAdd" placeholder="Player...">
+      <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
+      <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
+      <input type="submit" value="Submit"><br>
+      <input type="reset" value="Reset">
+      <script src="addItem.js"></script>
+      <script src="removeItem.js"></script>
+    </form>
+  </body>
+</html>

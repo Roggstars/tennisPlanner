@@ -18,7 +18,7 @@ function calculateMatchPlan() {
   let courtCount = document.getElementById("courtCount").valueAsNumber;
   let subCount = document.getElementById("subCount").valueAsNumber;
   let participantsPerMatch = playersPerMatch*courtCount + subCount;
-  console.log(document.getElementById("courtCount"));
+
   let weekDayArray = getSelectedWeekDays();
   let dateArray = getDateArray(startDate, weekDayArray, matchWeekCount);
 

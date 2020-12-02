@@ -7,7 +7,7 @@ function calculateMatchPlan() {
   matchListTable.setAttribute("id", "matchListTable");
   let playerList = document.getElementById("playerList");
   playerListItems = playerList.getElementsByTagName("li");
-  let matchWeekCount = document.getElementById("matchWeekCount").value;
+  let matchWeekCount = document.getElementById("matchWeekCount").valueAsNumber;
   document.body.appendChild(matchListTable);
   let nameRow = matchListTable.insertRow(0);
   let startDate = new Date(document.getElementById("startDate").value);
@@ -15,10 +15,10 @@ function calculateMatchPlan() {
   let text = document.createTextNode("Date");
   dateCell.appendChild(text);
   let playersPerMatch = 4;
-  let courtCount = document.getElementById("courtCount").value;
-  let subCount = document.getElementById("subCount").value;
+  let courtCount = document.getElementById("courtCount").valueAsNumber;
+  let subCount = document.getElementById("subCount").valueAsNumber;
   let participantsPerMatch = playersPerMatch*courtCount + subCount;
-
+  console.log(document.getElementById("courtCount"));
   let weekDayArray = getSelectedWeekDays();
   let dateArray = getDateArray(startDate, weekDayArray, matchWeekCount);
 

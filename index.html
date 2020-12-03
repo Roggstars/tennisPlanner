@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="addItem.js"></script>
     <script src="removeItem.js"></script>
-    <script src="calculateMatchPlan.js"></script>
+    <script src="generateMatchPlan.js"></script>
     <script src="getDateArray.js"></script>
     <script src="getSelectedWeekDays.js"></script>
+    <script src="getSeasonPlan.js"></script>
+    <script src="getLeastPlayedPlayers.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -37,7 +39,7 @@
       <input type="text" id="playerToAdd" placeholder="Player...">
       <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
       <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
-      <input type="button" id="createPlan" value="Create plan" onclick="calculateMatchPlan()"><br>
+      <input type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()"><br>
       <input type="reset" value="Reset">
     </form>
   </body>

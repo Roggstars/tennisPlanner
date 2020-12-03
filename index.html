@@ -11,6 +11,7 @@
     <script src="getSelectedWeekDays.js"></script>
     <script src="getSeasonPlan.js"></script>
     <script src="getLeastPlayedPlayers.js"></script>
+    <script src="shuffle2D.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,13 +19,13 @@
 <hr>
 <form action="index.html">
     <label for="courtCount">Court count</label>
-    <input type="number" id="courtCount" placeholder="Court count..." min="1"><br>
+    <input value = 1 type="number" id="courtCount" placeholder="Court count..." min="1"><br>
     <label for="subCount">Substitute count</label>
-    <input type="number" id="subCount" placeholder="Substitute count..."><br>
+    <input value = 0 type="number" id="subCount" placeholder="Substitute count..."><br>
     <label for="startDate">Start date</label>
-    <input type="date" id="startDate"><br>
+    <input value = "2020-12-04" type="date" id="startDate"><br>
     <label for="matchWeekCount">Match week count</label>
-    <input type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
+    <input value = 10 type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
     <label for="selectMon">Monday</label>
     <input type="checkbox" id="selectMon"><br>
     <label for="selectTue">Tuesday</label>
@@ -39,7 +40,14 @@
     <input type="checkbox" id="selectSat"><br>
     <label for="selectSun">Sunday</label>
     <input type="checkbox" id="selectSun"><br>
-    <ul id="playerList" style="list-style-type:none;"></ul>
+    <ul id="playerList" style="list-style-type:none;">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+    </ul>
     <input type="text" id="playerToAdd" placeholder="Player...">
     <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
     <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>

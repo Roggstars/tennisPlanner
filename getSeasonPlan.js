@@ -9,11 +9,17 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
     let duplicateList = Array.from(Array(playerList.length), _ => Array(matchDayCount - 1).fill(0));
 
     // Preallocate match list
-    let matchList = Array.from(Array(playersPlayingAtOnce), _ => Array(matchDayCount).fill(0))
+    let matchList = Array.from(Array(matchDayCount), _ => Array(playersPlayingAtOnce).fill(0))
 
     // Generate match plan and statistics
     for (let i = 0; i < matchDayCount; i++) {
-        matchList = getLeastPlayedPlayers(playersPlayedMatches, playersPlayingAtOnce);
+        matchList[i] = getLeastPlayedPlayers(playersPlayedMatches, playersPlayingAtOnce);
+        for (let j = 0; j < playersPlayedMatches.length; j++) {
+            if (matchList[i].includes(j)) {
+                playersPlayedMatches[j] += 1;
+            }
+        }
     }
 
+    return matchList;
 }

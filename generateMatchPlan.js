@@ -27,11 +27,18 @@ function generateMatchPlan() {
     let text = document.createTextNode("Date");
     matchListTable.setAttribute("id", "matchListTable");
     let playerListItems = playerList.getElementsByTagName("li");
+
+    // Extract clear names from players
+    let playerListText = Array(playerListItems.length)
+    for (let i = 0; i < playerListItems.length; i++) {
+        playerListText[i] = playerListItems[i].innerText;
+    }
+
     document.body.appendChild(matchListTable);
     dateCell.appendChild(text);
 
     // Get results of optimization
-    let seasonPlan = getSeasonPlan(playerListItems, courtCount, subCount, dateArray.length, participantsPerMatchDay);
+    let seasonPlan = getSeasonPlan(playerListText, courtCount, subCount, dateArray.length, participantsPerMatchDay);
 
     // Insert results in matchListTable
     let cell;
@@ -44,7 +51,7 @@ function generateMatchPlan() {
         cell.appendChild(appendDate);
         for (let j = 0; j < participantsPerMatchDay; j++) {
             cell = row.insertCell(j + 1);
-            text = document.createTextNode("0"); // Results here
+            text = document.createTextNode(playerListText[seasonPlan[i][j]]);
             cell.appendChild(text);
         }
     }

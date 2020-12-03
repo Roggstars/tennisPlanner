@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Tennis planner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,35 +12,39 @@
     <script src="getSeasonPlan.js"></script>
     <script src="getLeastPlayedPlayers.js"></script>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Tennis planner</h1>
-    <hr>
-    <form action="index.html">
-      <input type="number" id="courtCount" placeholder="Court count..." min="1"><br>
-      <input type="number" id="subCount" placeholder="Substitute count..."><br>
-      <input type="date" id="startDate"><br>
-      <input type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
-      <label for="selectMon">Monday</label>
-      <input type="checkbox" id="selectMon"><br>
-      <label for="selectTue">Tuesday</label>
-      <input type="checkbox" id="selectTue"><br>
-      <label for="selectWed">Wednesday</label>
-      <input type="checkbox" id="selectWed"><br>
-      <label for="selectThu">Thursday</label>
-      <input type="checkbox" id="selectThu"><br>
-      <label for="selectFri">Friday</label>
-      <input type="checkbox" id="selectFri"><br>
-      <label for="selectSat">Saturday</label>
-      <input type="checkbox" id="selectSat"><br>
-      <label for="selectSun">Sunday</label>
-      <input type="checkbox" id="selectSun"><br>
-      <ul id="playerList" style="list-style-type:none;"></ul>
-      <input type="text" id="playerToAdd" placeholder="Player...">
-      <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
-      <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
-      <input type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()"><br>
-      <input type="reset" value="Reset">
-    </form>
-  </body>
+</head>
+<body>
+<h1>Tennis planner</h1>
+<hr>
+<form action="index.html">
+    <label for="courtCount">Court count</label>
+    <input type="number" id="courtCount" placeholder="Court count..." min="1"><br>
+    <label for="subCount">Substitute count</label>
+    <input type="number" id="subCount" placeholder="Substitute count..."><br>
+    <label for="startDate">Start date</label>
+    <input type="date" id="startDate"><br>
+    <label for="matchWeekCount">Match week count</label>
+    <input type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
+    <label for="selectMon">Monday</label>
+    <input type="checkbox" id="selectMon"><br>
+    <label for="selectTue">Tuesday</label>
+    <input type="checkbox" id="selectTue"><br>
+    <label for="selectWed">Wednesday</label>
+    <input type="checkbox" id="selectWed"><br>
+    <label for="selectThu">Thursday</label>
+    <input type="checkbox" id="selectThu"><br>
+    <label for="selectFri">Friday</label>
+    <input type="checkbox" id="selectFri"><br>
+    <label for="selectSat">Saturday</label>
+    <input type="checkbox" id="selectSat"><br>
+    <label for="selectSun">Sunday</label>
+    <input type="checkbox" id="selectSun"><br>
+    <ul id="playerList" style="list-style-type:none;"></ul>
+    <input type="text" id="playerToAdd" placeholder="Player...">
+    <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
+    <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
+    <input type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()"><br>
+    <input type="reset" value="Reset">
+</form>
+</body>
 </html>

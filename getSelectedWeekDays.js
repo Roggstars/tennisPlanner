@@ -1,4 +1,5 @@
 function getSelectedWeekDays() {
+  // This function generates a boolean array according to the selected week days.
   let weekDayArray = new Array();
   weekDayArray.push(document.getElementById("selectMon").checked);
   weekDayArray.push(document.getElementById("selectTue").checked);

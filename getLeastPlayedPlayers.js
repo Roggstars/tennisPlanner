@@ -8,19 +8,23 @@ function getLeastPlayedPlayers(playersPlayedMatches, playersPlayingAtOnce) {
         playersPlayStats[i][1] = i;
     }
 
-    playersPlayStats = playersPlayStats.sort(function(a,b) {
+    playersPlayStats = playersPlayStats.sort(function (a, b) {
         return a[0] - b[0];
     });
 
-    function getCol(matrix, col){
-        let column = [];
-        for(let i=0; i<matrix.length; i++){
-            column.push(matrix[i][col]);
+    playersPlayStats.shuffleEqualSorted();
+    let playerSelectedIndices = getCol(playersPlayStats, 1);
+
+    let playersSelected = playerSelectedIndices.slice(0, playersPlayingAtOnce);
+
+    for (let j = 0; j < playersPlayedMatches.length; j++) {
+        if (playersSelected.includes(j)) {
+            playersPlayedMatches[j] += 1;
         }
-        return column;
     }
 
-    playersPlayStats.shuffleEqualSorted();
-    let playerSelectedIndices = getCol(playersPlayStats, 1)
-    return playerSelectedIndices.slice(0, playersPlayingAtOnce);
+    let returnArray = Array(2);
+    returnArray[0] = playersSelected;
+    returnArray[1] = playersPlayedMatches;
+    return returnArray;
 }

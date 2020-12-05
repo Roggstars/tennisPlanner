@@ -23,6 +23,12 @@ function generateMatchPlan() {
         oldTable.remove();
     }
 
+    // Check if there is an old sub count table
+    oldTable = document.getElementById("subCountTable")
+    if (oldTable) {
+        oldTable.remove();
+    }
+
     // Get values from inputs
     let playerList = document.getElementById("playerList");
     let playerListItems = playerList.getElementsByTagName("li");
@@ -125,6 +131,22 @@ function generateMatchPlan() {
         }
         document.body.appendChild(playersPlayedAgainstTable);
 
+        // Setup subCountTable
+        if (subCount > 0) {
+            let subCountTable = document.createElement("TABLE");
+            subCountTable.setAttribute("id", "subCountTable");
+            row = subCountTable.insertRow(0);
+            cell = row.insertCell(0);
+            text = document.createTextNode("Player");
+            cell.appendChild(text);
+            for (let i = 0; i < subCount; i++) {
+                cell = row.insertCell(i + 1);
+                text = document.createTextNode("Substitute " + (i + 1).toString());
+                cell.appendChild(text);
+            }
+            document.body.appendChild(subCountTable);
+        }
+
         // Get results of optimization
         let seasonStats = getSeasonPlan(playerListText, courtCount, subCount, dateArray.length, participantsPerMatchDay);
 
@@ -136,9 +158,15 @@ function generateMatchPlan() {
             appendDate = document.createTextNode(dateArray[i].toDateString());
             cell.appendChild(appendDate);
             for (let j = 0; j < participantsPerMatchDay; j++) {
-                cell = row.insertCell(j + 1);
-                text = document.createTextNode(playerListText[seasonStats[0][i][j]]);
-                cell.appendChild(text);
+                if (j < participantsPerMatchDay - subCount) {
+                    cell = row.insertCell(j + 1);
+                    text = document.createTextNode(playerListText[seasonStats[0][i][j]]);
+                    cell.appendChild(text);
+                } else {
+                    cell = row.insertCell(j + 1);
+                    text = document.createTextNode(playerListText[seasonStats[4][i][j - (participantsPerMatchDay - subCount)]]);
+                    cell.appendChild(text);
+                }
             }
         }
 
@@ -183,6 +211,21 @@ function generateMatchPlan() {
                     text = document.createTextNode(seasonStats[3][i][j].toString());
                 }
                 cell.appendChild(text);
+            }
+        }
+
+        // Insert results in subCountTable
+        if (subCount > 0) {
+            for (let i = 0; i < seasonStats[5][0].length; i++) {
+                row = subCountTable.insertRow(i + 1);
+                cell = row.insertCell(0);
+                text = document.createTextNode(playerListText[i]);
+                cell.appendChild(text);
+                for (let j = 0; j < subCount; j++) {
+                    cell = row.insertCell(j + 1);
+                    text = document.createTextNode(seasonStats[5][j][i].toString());
+                    cell.appendChild(text);
+                }
             }
         }
     } else {

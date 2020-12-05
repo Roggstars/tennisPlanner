@@ -6,6 +6,10 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
     let playersPlayedMatches = Array(playerList.length).fill(0);
     let mateWeights = Array.from(Array(playerList.length), _ => Array(playerList.length).fill(0));
     let opponentWeights = Array.from(Array(playerList.length), _ => Array(playerList.length).fill(0));
+
+    // Preallocate substitute metrics
+    let playersSubCount = Array.from(Array(subCount), _ => Array(playerList.length).fill(0));
+
     for (let i = 0; i < mateWeights.length; i++) {
         mateWeights[i][i] = Infinity;
         opponentWeights[i][i] = Infinity;
@@ -13,8 +17,9 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
 
     let duplicateList = Array.from(Array(playerList.length), _ => Array(matchDayCount - 1).fill(0));
 
-    // Preallocate match list
-    let matchList = Array.from(Array(matchDayCount), _ => Array(playersPlayingAtOnce).fill(0))
+    // Preallocate match/sub list
+    let matchList = Array.from(Array(matchDayCount), _ => Array(playersPlayingAtOnce).fill(0));
+    let subList = Array.from(Array(matchDayCount), _ => Array(subCount).fill(0));
 
     // Generate match plan and statistics
     let returnArray;
@@ -28,7 +33,10 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
         returnArray = getLeastPlayedAgainst(matchList[i], opponentWeights);
         matchList[i] = returnArray[0];
         opponentWeights = returnArray[1];
+        returnArray = getSubList(matchList[i], playersSubCount);
+        subList[i] = returnArray[0];
+        playersSubCount = returnArray[1];
     }
 
-    return [matchList, playersPlayedMatches, mateWeights, opponentWeights];
+    return [matchList, playersPlayedMatches, mateWeights, opponentWeights, subList, playersSubCount];
 }

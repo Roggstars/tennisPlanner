@@ -5,7 +5,6 @@ function addItem() {
     if (input.value !== "") {
         li.innerHTML = input.value;
         input.value = "";
-        document.getElementById("playerList").appendChild(li);
-        console.log("Added item *" + li.innerHTML + "* to list.")
+        document.getElementById("playerList").prepend(li);
     }
 }

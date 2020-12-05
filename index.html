@@ -16,6 +16,7 @@
     <script src="removeFromArray.js"></script>
     <script src="getCol.js"></script>
     <script src="getLeastPlayedAgainst.js"></script>
+    <script src="getSubList.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,17 +24,17 @@
 <hr>
 <form action="index.html">
     <label for="courtCount">Court count</label>
-    <input value = 2 type="number" id="courtCount" placeholder="Court count..." min="1"><br>
+    <input type="number" id="courtCount" placeholder="Court count..." min="1"><br>
     <label for="subCount">Substitute count</label>
-    <input value = 0 type="number" id="subCount" placeholder="Substitute count..."><br>
+    <input type="number" id="subCount" placeholder="Substitute count..."><br>
     <label for="startDate">Start date</label>
-    <input value = "2020-12-04" type="date" id="startDate"><br>
+    <input type="date" id="startDate"><br>
     <label for="matchWeekCount">Match week count</label>
-    <input value = 20 type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
+    <input type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
     <label for="selectMon">Monday</label>
-    <input checked type="checkbox" id="selectMon"><br>
+    <input type="checkbox" id="selectMon"><br>
     <label for="selectTue">Tuesday</label>
-    <input checked type="checkbox" id="selectTue"><br>
+    <input type="checkbox" id="selectTue"><br>
     <label for="selectWed">Wednesday</label>
     <input type="checkbox" id="selectWed"><br>
     <label for="selectThu">Thursday</label>
@@ -43,26 +44,12 @@
     <label for="selectSat">Saturday</label>
     <input type="checkbox" id="selectSat"><br>
     <label for="selectSun">Sunday</label>
-    <input type="checkbox" id="selectSun"><br>
-    <ul id="playerList" style="list-style-type:none;">
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
-        <li>E</li>
-        <li>F</li>
-        <li>G</li>
-        <li>H</li>
-        <li>I</li>
-        <li>J</li>
-        <li>K</li>
-        <li>L</li>
-        <li>M</li>
-        <li>N</li>
-    </ul>
+    <input type="checkbox" id="selectSun"><br><br>
     <input type="text" id="playerToAdd" placeholder="Player...">
-    <input type="button" id="addPlayer" value="Add player" onclick=addItem()><br>
+    <input type="button" id="addPlayer" value="Add player" onclick=addItem()>
     <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
+    <ul id="playerList" style="list-style-type:none;">
+    </ul>
     <input type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()"><br>
     <input type="reset" value="Reset">
 </form>

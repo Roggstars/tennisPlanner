@@ -25,7 +25,10 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
         returnArray = getLeastPlayedTogether(matchList[i], mateWeights);
         matchList[i] = returnArray[0];
         mateWeights = returnArray[1];
+        returnArray = getLeastPlayedAgainst(matchList[i], opponentWeights);
+        matchList[i] = returnArray[0];
+        opponentWeights = returnArray[1];
     }
 
-    return [matchList, playersPlayedMatches, mateWeights];
+    return [matchList, playersPlayedMatches, mateWeights, opponentWeights];
 }

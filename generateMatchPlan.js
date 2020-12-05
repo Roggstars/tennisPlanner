@@ -17,6 +17,12 @@ function generateMatchPlan() {
         oldTable.remove();
     }
 
+    // Check if there is an old played against table
+    oldTable = document.getElementById("playersPlayedAgainstTable")
+    if (oldTable) {
+        oldTable.remove();
+    }
+
     // Get values from inputs
     let playerList = document.getElementById("playerList");
     let playerListItems = playerList.getElementsByTagName("li");
@@ -91,7 +97,7 @@ function generateMatchPlan() {
         cell.appendChild(text);
         document.body.appendChild(playersPlayedMatchesTable);
 
-        // Setup playersPlayedMatchesTable
+        // Setup playersPlayedTogetherTable
         let playersPlayedTogetherTable = document.createElement("TABLE");
         playersPlayedTogetherTable.setAttribute("id", "playersPlayedTogetherTable");
         row = playersPlayedTogetherTable.insertRow(0);
@@ -104,6 +110,20 @@ function generateMatchPlan() {
             cell.appendChild(text);
         }
         document.body.appendChild(playersPlayedTogetherTable);
+
+        // Setup playersPlayedTogetherTable
+        let playersPlayedAgainstTable = document.createElement("TABLE");
+        playersPlayedAgainstTable.setAttribute("id", "playersPlayedAgainstTable");
+        row = playersPlayedAgainstTable.insertRow(0);
+        cell = row.insertCell(0);
+        text = document.createTextNode("");
+        cell.appendChild(text);
+        for (let j = 0; j < playerListItems.length; j++) {
+            cell = row.insertCell(j + 1);
+            text = document.createTextNode(playerListText[j]);
+            cell.appendChild(text);
+        }
+        document.body.appendChild(playersPlayedAgainstTable);
 
         // Get results of optimization
         let seasonStats = getSeasonPlan(playerListText, courtCount, subCount, dateArray.length, participantsPerMatchDay);
@@ -145,6 +165,22 @@ function generateMatchPlan() {
                     text = document.createTextNode("");
                 } else {
                     text = document.createTextNode(seasonStats[2][i][j].toString());
+                }
+                cell.appendChild(text);
+            }
+        }
+        // Insert results in playersPlayedAgainstTable
+        for (let i = 0; i < seasonStats[3].length; i++) {
+            row = playersPlayedAgainstTable.insertRow(i + 1);
+            cell = row.insertCell(0);
+            text = document.createTextNode(playerListText[i]);
+            cell.appendChild(text);
+            for (let j = 0; j < seasonStats[2].length; j++) {
+                cell = row.insertCell(j + 1);
+                if (i === j) {
+                    text = document.createTextNode("");
+                } else {
+                    text = document.createTextNode(seasonStats[3][i][j].toString());
                 }
                 cell.appendChild(text);
             }

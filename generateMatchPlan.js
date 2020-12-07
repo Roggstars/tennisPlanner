@@ -34,7 +34,6 @@ function generateMatchPlan() {
     let playerListItems = playerList.getElementsByTagName("li");
     let matchWeekCount = document.getElementById("matchWeekCount").valueAsNumber;
     let courtCount = document.getElementById("courtCount").valueAsNumber;
-    let subCount = document.getElementById("subCount").valueAsNumber;
 
     // Extract clear names from players
     let playerListText = Array(playerListItems.length)
@@ -49,6 +48,7 @@ function generateMatchPlan() {
 
     // Participants calculation
     let playersPerMatch = 4;
+    let subCount = playerListItems.length - playersPerMatch * courtCount;
     let participantsPerMatchDay = playersPerMatch * courtCount + subCount;
 
     // Setup table variables
@@ -155,7 +155,19 @@ function generateMatchPlan() {
         for (let i = 0; i < dateArray.length; i++) {
             row = matchListTable.insertRow(i + 1);
             cell = row.insertCell(0);
-            appendDate = document.createTextNode(dateArray[i].toDateString());
+            if ((dateArray[i].getMonth() + 1) < 10) {
+                if (dateArray[i].getDate() < 10) {
+                    appendDate = document.createTextNode("0" + dateArray[i].getDate() + ".0" + (dateArray[i].getMonth() + 1).toString() + ".");
+                } else {
+                    appendDate = document.createTextNode(dateArray[i].getDate() + ".0" + (dateArray[i].getMonth() + 1).toString() + ".");
+                }
+            } else {
+                if (dateArray[i].getDate() < 10) {
+                    appendDate = document.createTextNode("0" + dateArray[i].getDate() + "." + (dateArray[i].getMonth() + 1).toString() + ".");
+                } else {
+                    appendDate = document.createTextNode(dateArray[i].getDate() + "." + (dateArray[i].getMonth() + 1).toString() + ".");
+                }
+            }
             cell.appendChild(appendDate);
             for (let j = 0; j < participantsPerMatchDay; j++) {
                 if (j < participantsPerMatchDay - subCount) {

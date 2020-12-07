@@ -57,8 +57,12 @@ function generateMatchPlan() {
     let text;
 
     let inputError;
-    if (participantsPerMatchDay > playerListItems.length) {
+    if (isNaN(courtCount)) {
         inputError = 1;
+    } else if (!(startDate instanceof Date) || isNaN(startDate)) {
+        inputError = 2;
+    } else if (isNaN(matchWeekCount)) {
+        inputError = 3;
     } else if (!document.getElementById("selectMon").checked &&
         !document.getElementById("selectTue").checked &&
         !document.getElementById("selectWed").checked &&
@@ -66,17 +70,11 @@ function generateMatchPlan() {
         !document.getElementById("selectFri").checked &&
         !document.getElementById("selectSat").checked &&
         !document.getElementById("selectSun").checked) {
-        inputError = 2;
-    } else if (playerList.innerHTML === "") {
-        inputError = 3;
-    } else if (isNaN(courtCount)) {
         inputError = 4;
-    } else if (isNaN(subCount)) {
+    } else if (playerListItems.length === 0) {
         inputError = 5;
-    } else if (isNaN(matchWeekCount)) {
+    } else if (subCount < 0) {
         inputError = 6;
-    } else if (!(startDate instanceof Date) || isNaN(startDate)) {
-        inputError = 7;
     } else {
         inputError = 0;
     }
@@ -243,25 +241,24 @@ function generateMatchPlan() {
     } else {
         switch (inputError) {
             case 1:
-                alert("Insufficient amount of players to fill all courts.");
-                break;
-            case 2:
-                alert("No match dates selected.");
-                break;
-            case 3:
-                alert("Player list is empty.");
-                break;
-            case 4:
                 alert("Please enter a court count.");
                 break;
-            case 5:
-                alert("Please enter a substitute count (can be zero).");
+            case 2:
+                alert("Please enter a start date.");
                 break;
-            case 6:
+            case 3:
                 alert("Please enter a week count for the season.");
                 break;
-            case 7:
-                alert("Please enter a start date.");
+            case 4:
+                alert("No match dates selected.");
+                break;
+            case 5:
+                alert("Player list is empty.");
+                break;
+            case 6:
+                alert("Insufficient amount of players to fill all courts.");
+                break;
+            default:
                 break;
         }
     }

@@ -28,26 +28,26 @@
 <hr>
 <form action="index.html">
     <label for="courtCount">Court count</label>
-    <input type="number" id="courtCount" placeholder="Court count..." min="1"><br>
+    <input type="number" id="courtCount" placeholder="Court count..." min="1" title="Enter the amount of tennis courts which are available during a match day."><br>
     <label for="startDate">Start date</label>
-    <input type="date" id="startDate"><br>
+    <input type="date" id="startDate" title="Enter the start date of the season."><br>
     <label for="matchWeekCount">Match week count</label>
-    <input type="number" id="matchWeekCount" placeholder="Match week count..."><br><br>
+    <input type="number" id="matchWeekCount" placeholder="Match week count..." title="Enter the number of weeks during the season."><br><br>
     <label for="selectMon">Monday</label>
-    <input type="checkbox" id="selectMon"><br>
+    <input type="checkbox" id="selectMon" title="Select Monday as a match day."><br>
     <label for="selectTue">Tuesday</label>
-    <input type="checkbox" id="selectTue"><br>
+    <input type="checkbox" id="selectTue" title="Select Tuesday as a match day."><br>
     <label for="selectWed">Wednesday</label>
-    <input type="checkbox" id="selectWed"><br>
+    <input type="checkbox" id="selectWed" title="Select Wednesday as a match day."><br>
     <label for="selectThu">Thursday</label>
-    <input type="checkbox" id="selectThu"><br>
+    <input type="checkbox" id="selectThu" title="Select Thursday as a match day."><br>
     <label for="selectFri">Friday</label>
-    <input type="checkbox" id="selectFri"><br>
+    <input type="checkbox" id="selectFri" title="Select Friday as a match day."><br>
     <label for="selectSat">Saturday</label>
-    <input type="checkbox" id="selectSat"><br>
+    <input type="checkbox" id="selectSat" title="Select Saturday as a match day."><br>
     <label for="selectSun">Sunday</label>
-    <input type="checkbox" id="selectSun"><br><br>
-    <input type="text" id="playerToAdd" placeholder="Player...">
+    <input type="checkbox" id="selectSun" title="Select Sunday as a match day."><br><br>
+    <input type="text" id="playerToAdd" placeholder="Player..." title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list. ">
     <input type="button" id="addPlayer" value="Add player" onclick=addItem()>
     <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
     <ul id="playerList" style="list-style-type:none;">

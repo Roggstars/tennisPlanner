@@ -87,6 +87,18 @@ function generateMatchPlan() {
         cell = row.insertCell(0);
         text = document.createTextNode("Date");
         cell.appendChild(text);
+        for (let i = 0; i < courtCount; i++) {
+            text = document.createTextNode("Court " + (i + 1).toString());
+            cell = row.insertCell(i + 1);
+            cell.appendChild(text);
+            cell.colSpan = playersPerMatch;
+        }
+        if (subCount > 0) {
+            text = document.createTextNode("Substitutes");
+            cell = row.insertCell(courtCount + 1);
+            cell.appendChild(text);
+            cell.colSpan = subCount;
+        }
         document.body.appendChild(matchListTable);
 
         // Setup playersPlayedMatchesTable

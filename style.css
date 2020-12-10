@@ -1,0 +1,18 @@
+#matchListTable tbody {
+    display: block;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#matchListTable tbody:nth-child(odd) tr:nth-child(odd) {
+    background-color: #ababab;
+}
+
+#matchListTable td {
+    padding: 10px;
+    text-align: center;
+}
+
+.row {
+    margin-left: 0px;
+}

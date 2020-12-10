@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>Tennis planner</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="addItem.js"></script>
     <script src="removeItem.js"></script>
     <script src="generateMatchPlan.js"></script>
@@ -17,43 +21,93 @@
     <script src="getCol.js"></script>
     <script src="getLeastPlayedAgainst.js"></script>
     <script src="getSubList.js"></script>
+    <script src="addItemEnter.js"></script>
+    <script>document.getElementById("addPlayer").addEventListener("keypress", addItemEnter);</script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<select id="langselector">
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
-</select>
-<h1>Tennis planner</h1>
-<hr>
+<div class="container">
+    <select class="form-control" id="langselector">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+    </select>
+    <div class="jumbotron text-center">
+        <h1>Tennis planner</h1>
+        <p>A tool to plan a tennis season of double matches.</p>
+    </div>
+</div>
+<div class="container">
 <form action="index.html">
-    <label for="courtCount">Court count</label>
-    <input type="number" id="courtCount" placeholder="Court count..." min="1" title="Enter the amount of tennis courts which are available during a match day."><br>
-    <label for="startDate">Start date</label>
-    <input type="date" id="startDate" title="Enter the start date of the season."><br>
-    <label for="matchWeekCount">Match week count</label>
-    <input type="number" id="matchWeekCount" placeholder="Match week count..." title="Enter the number of weeks during the season."><br><br>
-    <label for="selectMon">Monday</label>
-    <input type="checkbox" id="selectMon" title="Select Monday as a match day."><br>
-    <label for="selectTue">Tuesday</label>
-    <input type="checkbox" id="selectTue" title="Select Tuesday as a match day."><br>
-    <label for="selectWed">Wednesday</label>
-    <input type="checkbox" id="selectWed" title="Select Wednesday as a match day."><br>
-    <label for="selectThu">Thursday</label>
-    <input type="checkbox" id="selectThu" title="Select Thursday as a match day."><br>
-    <label for="selectFri">Friday</label>
-    <input type="checkbox" id="selectFri" title="Select Friday as a match day."><br>
-    <label for="selectSat">Saturday</label>
-    <input type="checkbox" id="selectSat" title="Select Saturday as a match day."><br>
-    <label for="selectSun">Sunday</label>
-    <input type="checkbox" id="selectSun" title="Select Sunday as a match day."><br><br>
-    <input type="text" id="playerToAdd" placeholder="Player..." title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list. ">
-    <input type="button" id="addPlayer" value="Add player" onclick=addItem()>
-    <input type="button" id="removePlayer" value="Remove player" onclick=removeItem()><br>
-    <ul id="playerList" style="list-style-type:none;">
-    </ul>
-    <input type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()"><br>
-    <input type="reset" value="Reset">
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label class="control-label" for="courtCount">Court count</label>
+            <input type="number" class="form-control" id="courtCount" placeholder="Court count..." min="1" title="Enter the amount of tennis courts which are available during a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="matchWeekCount">Match week count</label>
+            <input type="number" class="form-control" id="matchWeekCount" placeholder="Match week count..." title="Enter the number of weeks during the season.">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label" for="startDate">Start date</label>
+            <input type="date" class="form-control" id="startDate" title="Enter the start date of the season.">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <label class="control-label" for="selectMon">Monday</label>
+            <input type="checkbox" id="selectMon" title="Select Monday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectTue">Tuesday</label>
+            <input type="checkbox" id="selectTue" title="Select Tuesday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectWed">Wednesday</label>
+            <input type="checkbox" id="selectWed" title="Select Wednesday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectThu">Thursday</label>
+            <input type="checkbox" id="selectThu" title="Select Thursday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectFri">Friday</label>
+            <input type="checkbox" id="selectFri" title="Select Friday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectSat">Saturday</label>
+            <input type="checkbox" id="selectSat" title="Select Saturday as a match day.">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="selectSun">Sunday</label>
+            <input type="checkbox" id="selectSun" title="Select Sunday as a match day.">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <input class="form-control" type="text" id="playerToAdd" placeholder="Player..." title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list." onkeypress="addItemEnter(event)">
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="button" id="addPlayer" value="Add" onclick=addItem()>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="button" id="removePlayer" value="Remove" onclick=removeItem()>
+        </div>
+    </div>
+    <div class="form-group">
+        <ul class="list-group" id="playerList" style="list-style-type:none;">
+        </ul>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <input class="form-control" type="button" id="createPlan" value="Create plan" onclick="generateMatchPlan()">
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" type="reset" value="Reset">
+        </div>
+    </div>
 </form>
+</div>
 </body>
 </html>

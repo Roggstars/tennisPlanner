@@ -250,6 +250,9 @@ function generateMatchPlan() {
                 }
             }
         }
+
+        let scrollElement = document.getElementById("matchListTable");
+        scrollElement.scrollIntoView();
     } else {
         switch (inputError) {
             case 1:

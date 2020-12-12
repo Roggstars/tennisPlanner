@@ -16,3 +16,14 @@
 .row {
     margin-left: 0px;
 }
+
+li {
+    height: auto;
+    line-height: 5px;
+}
+
+li:nth-child(odd) { background: #ababab; }
+
+html {
+    scroll-behavior: smooth;
+}

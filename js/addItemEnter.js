@@ -3,3 +3,5 @@ function addItemEnter(e) {
         addItem();
     }
 }
+
+document.getElementById("playerToAdd").addEventListener("keypress", addItemEnter);

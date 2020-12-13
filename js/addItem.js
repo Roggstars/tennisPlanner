@@ -9,3 +9,5 @@ function addItem() {
         document.getElementById("playerList").prepend(li);
     }
 }
+
+document.getElementById("addPlayer").addEventListener('click', addItem);

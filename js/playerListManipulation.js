@@ -19,3 +19,8 @@ function removeItem() {
 function clearList() {
     document.getElementById("playerList").innerHTML = "";
 }
+function addItemEnter(e) {
+    if (e.key === "Enter") {
+        addItem();
+    }
+}

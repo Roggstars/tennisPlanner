@@ -278,5 +278,3 @@ function generateMatchPlan() {
         }
     }
 }
-
-document.getElementById("createPlan").addEventListener('click', generateMatchPlan);

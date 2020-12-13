@@ -5,5 +5,3 @@ function removeItem() {
         playerList.removeChild(playerList.firstElementChild);
     }
 }
-
-document.getElementById("removePlayer").addEventListener('click', removeItem);

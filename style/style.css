@@ -9,11 +9,19 @@
 background-color: #ababab;
 }
 #matchListTable td {
-padding:0.5em;
 text-align: center;
 }
-.row {
-padding-right: 0em;
+#playersPlayedMatchesTable tbody:nth-child(odd) tr:nth-child(odd) {
+    background-color: #ababab;
+}
+#playersPlayedMatchesTable td {
+    text-align: center;
+}
+#subCountTable tbody:nth-child(odd) tr:nth-child(odd) {
+    background-color: #ababab;
+}
+#subCountTable td {
+    text-align: center;
 }
 li:nth-child(odd) { background: #ababab; }
 html {

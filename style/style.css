@@ -17,7 +17,7 @@ padding-right: 0em;
 }
 li:nth-child(odd) { background: #ababab; }
 #startDate {
-    line-height: 2.8em;
+    height: 58px;
 }
 html {
 scroll-behavior: smooth;

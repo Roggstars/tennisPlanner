@@ -16,9 +16,6 @@ text-align: center;
 padding-right: 0em;
 }
 li:nth-child(odd) { background: #ababab; }
-#startDate {
-    height: 58px;
-}
 html {
 scroll-behavior: smooth;
 }

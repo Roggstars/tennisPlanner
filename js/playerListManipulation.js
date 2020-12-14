@@ -18,6 +18,7 @@ function removeItem() {
 }
 function clearList() {
     document.getElementById("playerList").innerHTML = "";
+    removeOldTables();
 }
 function addItemEnter(e) {
     if (e.key === "Enter") {

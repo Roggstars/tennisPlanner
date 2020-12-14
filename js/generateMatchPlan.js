@@ -1,33 +1,5 @@
 function generateMatchPlan() {
-    // Check if there is an old match plan present
-    let oldTable = document.getElementById("matchListTable");
-    if (oldTable) {
-        oldTable.remove();
-    }
-
-    // Check if there is an old matches played table
-    oldTable = document.getElementById("playersPlayedMatchesTable")
-    if (oldTable) {
-        oldTable.remove();
-    }
-
-    // Check if there is an old played together table
-    oldTable = document.getElementById("playersPlayedTogetherTable")
-    if (oldTable) {
-        oldTable.remove();
-    }
-
-    // Check if there is an old played against table
-    oldTable = document.getElementById("playersPlayedAgainstTable")
-    if (oldTable) {
-        oldTable.remove();
-    }
-
-    // Check if there is an old sub count table
-    oldTable = document.getElementById("subCountTable")
-    if (oldTable) {
-        oldTable.remove();
-    }
+    removeOldTables();
 
     // Get values from inputs
     let playerList = document.getElementById("playerList");
@@ -81,8 +53,7 @@ function generateMatchPlan() {
 
     if (!inputError) {
         // Setup matchListTable
-        let matchListTable = document.createElement("TABLE");
-        matchListTable.setAttribute("id", "matchListTable");
+        let matchListTable = document.getElementById("matchListTable");
         row = matchListTable.insertRow(0);
         cell = row.insertCell(0);
         text = document.createTextNode("Date");
@@ -99,11 +70,10 @@ function generateMatchPlan() {
             cell.appendChild(text);
             cell.colSpan = subCount;
         }
-        document.body.appendChild(matchListTable);
+        document.getElementById("matchListTable").className += " pageBreakAfter";
 
         // Setup playersPlayedMatchesTable
-        let playersPlayedMatchesTable = document.createElement("TABLE");
-        playersPlayedMatchesTable.setAttribute("id", "playersPlayedMatchesTable");
+        let playersPlayedMatchesTable = document.getElementById("playersPlayedMatchesTable");
         row = playersPlayedMatchesTable.insertRow(0);
         cell = row.insertCell(0);
         text = document.createTextNode("Player");
@@ -111,11 +81,10 @@ function generateMatchPlan() {
         cell = row.insertCell(1);
         text = document.createTextNode("Games played");
         cell.appendChild(text);
-        document.body.appendChild(playersPlayedMatchesTable);
+        document.getElementById("playersPlayedMatchesTable").className += " pageBreakAfter";
 
         // Setup playersPlayedTogetherTable
-        let playersPlayedTogetherTable = document.createElement("TABLE");
-        playersPlayedTogetherTable.setAttribute("id", "playersPlayedTogetherTable");
+        let playersPlayedTogetherTable = document.getElementById("playersPlayedTogetherTable");
         row = playersPlayedTogetherTable.insertRow(0);
         cell = row.insertCell(0);
         text = document.createTextNode("");
@@ -125,11 +94,10 @@ function generateMatchPlan() {
             text = document.createTextNode(playerListText[j]);
             cell.appendChild(text);
         }
-        document.body.appendChild(playersPlayedTogetherTable);
+        document.getElementById("playersPlayedTogetherTable").className += " pageBreakAfter";
 
         // Setup playersPlayedTogetherTable
-        let playersPlayedAgainstTable = document.createElement("TABLE");
-        playersPlayedAgainstTable.setAttribute("id", "playersPlayedAgainstTable");
+        let playersPlayedAgainstTable = document.getElementById("playersPlayedAgainstTable");
         row = playersPlayedAgainstTable.insertRow(0);
         cell = row.insertCell(0);
         text = document.createTextNode("");
@@ -139,12 +107,10 @@ function generateMatchPlan() {
             text = document.createTextNode(playerListText[j]);
             cell.appendChild(text);
         }
-        document.body.appendChild(playersPlayedAgainstTable);
 
         // Setup subCountTable
         if (subCount > 0) {
-            let subCountTable = document.createElement("TABLE");
-            subCountTable.setAttribute("id", "subCountTable");
+            let subCountTable = document.getElementById("subCountTable");
             row = subCountTable.insertRow(0);
             cell = row.insertCell(0);
             text = document.createTextNode("Player");
@@ -154,7 +120,6 @@ function generateMatchPlan() {
                 text = document.createTextNode("Substitute " + (i + 1).toString());
                 cell.appendChild(text);
             }
-            document.body.appendChild(subCountTable);
         }
 
         // Get results of optimization
@@ -179,6 +144,7 @@ function generateMatchPlan() {
                 }
             }
             cell.appendChild(appendDate);
+            let formattingIndex = 0;
             for (let j = 0; j < participantsPerMatchDay; j++) {
                 if (j < participantsPerMatchDay - subCount) {
                     cell = row.insertCell(j + 1);

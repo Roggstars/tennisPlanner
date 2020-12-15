@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html class="h-100" lang="en" dir="ltr">
 <head>
     <meta charset="utf-8"/>
     <title>Tennis planner</title>
@@ -14,7 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
 <div class="container-fluid inputArea no-pad">
     <div class="jumbotron text-center inputArea">
         <div class="col-md-2 offset-md-10">
@@ -131,6 +132,19 @@
         <table id="playersPlayedAgainstTable" class="table"></table>
     </div>
 </div>
+</main>
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <span class="text-muted text-center">v0.1</span>
+            </div>
+            <div class="col-md-4">
+                <span class="text-muted">Copyright © 2020 Julian Roggendorf</span>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

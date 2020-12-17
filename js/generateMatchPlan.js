@@ -70,7 +70,6 @@ function generateMatchPlan() {
             cell.appendChild(text);
             cell.colSpan = subCount;
         }
-        document.getElementById("matchListTable").className += " pageBreakAfter";
 
         // Setup playersPlayedMatchesTable
         let playersPlayedMatchesTable = document.getElementById("playersPlayedMatchesTable");
@@ -81,7 +80,6 @@ function generateMatchPlan() {
         cell = row.insertCell(1);
         text = document.createTextNode("Games played");
         cell.appendChild(text);
-        document.getElementById("playersPlayedMatchesTable").className += " pageBreakAfter";
 
         // Setup playersPlayedTogetherTable
         let playersPlayedTogetherTable = document.getElementById("playersPlayedTogetherTable");
@@ -94,7 +92,6 @@ function generateMatchPlan() {
             text = document.createTextNode(playerListText[j]);
             cell.appendChild(text);
         }
-        document.getElementById("playersPlayedTogetherTable").className += " pageBreakAfter";
 
         // Setup playersPlayedTogetherTable
         let playersPlayedAgainstTable = document.getElementById("playersPlayedAgainstTable");

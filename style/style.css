@@ -1,10 +1,3 @@
-@media print {
-    .inputArea {
-        display: none;
-    }
-    .pageBreakAfter {page-break-after:always;}
-    @page {size: auto; margin: 0em;}
-}
 #matchListTable tbody:nth-child(odd) tr:nth-child(odd) {
 background-color: #ababab;
 }
@@ -23,6 +16,18 @@ text-align: center;
 #subCountTable td {
     text-align: center;
 }
+#playersPlayedAgainstTable tbody:nth-child(odd) tr:nth-child(odd) {
+    background-color: #ababab;
+}
+#playersPlayedAgainstTable td {
+    text-align: center;
+}
+#playersPlayedTogetherTable tbody:nth-child(odd) tr:nth-child(odd) {
+    background-color: #ababab;
+}
+#playersPlayedTogetherTable td {
+    text-align: center;
+}
 li:nth-child(odd) { background: #ababab; }
 html {
 scroll-behavior: smooth;
@@ -33,4 +38,13 @@ scroll-behavior: smooth;
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: .3rem;
+}
+@media print {
+    @page {
+        size: auto;
+        margin: 0;
+    }
+    .pageBreak {
+        break-inside: avoid;
+    }
 }

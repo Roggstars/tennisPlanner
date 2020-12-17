@@ -105,8 +105,14 @@ function generateMatchPlan() {
             cell.appendChild(text);
         }
 
+        document.getElementById("matchListTableHeading").style.visibility = "visible";
+        document.getElementById("playersPlayedMatchesHeading").style.visibility = "visible";
+        document.getElementById("playersPlayedTogetherHeading").style.visibility = "visible";
+        document.getElementById("playersPlayedAgainstHeading").style.visibility = "visible";
+
         // Setup subCountTable
         if (subCount > 0) {
+            document.getElementById("subCountHeading").style.visibility = "visible";
             let subCountTable = document.getElementById("subCountTable");
             row = subCountTable.insertRow(0);
             cell = row.insertCell(0);

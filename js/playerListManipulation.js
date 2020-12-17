@@ -1,3 +1,9 @@
+document.getElementById("matchListTableHeading").style.visibility = "hidden";
+document.getElementById("playersPlayedMatchesHeading").style.visibility = "hidden";
+document.getElementById("playersPlayedTogetherHeading").style.visibility = "hidden";
+document.getElementById("playersPlayedAgainstHeading").style.visibility = "hidden";
+document.getElementById("subCountHeading").style.visibility = "hidden";
+
 function addItem() {
     // This function adds an item to the playerList.
     let li = document.createElement("LI");
@@ -19,6 +25,11 @@ function removeItem() {
 function clearList() {
     document.getElementById("playerList").innerHTML = "";
     removeOldTables();
+    document.getElementById("matchListTableHeading").style.visibility = "hidden";
+    document.getElementById("playersPlayedMatchesHeading").style.visibility = "hidden";
+    document.getElementById("playersPlayedTogetherHeading").style.visibility = "hidden";
+    document.getElementById("playersPlayedAgainstHeading").style.visibility = "hidden";
+    document.getElementById("subCountHeading").style.visibility = "hidden";
 }
 function addItemEnter(e) {
     if (e.key === "Enter") {

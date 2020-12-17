@@ -15,128 +15,135 @@
 </head>
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
-<div class="container-fluid inputArea no-pad">
-    <div class="jumbotron text-center inputArea">
-        <div class="col-md-2 offset-md-10">
-            <select class="form-control" id="langselector">
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-            </select>
+    <div class="container-fluid inputArea no-pad d-print-none">
+        <div class="jumbotron text-center inputArea">
+            <div class="col-md-2 offset-md-10">
+                <select class="form-control" id="langselector">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <h1>Tennis planner</h1>
+            <p>A tool to plan a tennis season of double matches.</p>
         </div>
-        <h1>Tennis planner</h1>
-        <p>A tool to plan a tennis season of double matches.</p>
     </div>
-</div>
-<div class="container-fluid inputArea">
-    <form action="index.html">
-        <div class="form-group row no-pad">
-            <div class="col-md-3 gx-5">
-                <div class="form-group mb-3">
-                    <div class="col-md-12 no-pad">
-                        <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="startDate"
-                                title="Enter the start date of the season.">
-                            <label class="control-label" for="startDate">Start date</label>
+    <div class="container-fluid inputArea d-print-none">
+        <form action="index.html">
+            <div class="form-group row no-pad">
+                <div class="col-md-3 gx-5">
+                    <div class="form-group mb-3">
+                        <div class="col-md-12 no-pad">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="startDate"
+                                       title="Enter the start date of the season.">
+                                <label class="control-label" for="startDate">Start date</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12 no-pad">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="courtCount" placeholder="Court count..."
+                                       min="1"
+                                       title="Enter the amount of tennis courts which are available during a match day.">
+                                <label class="control-label" for="courtCount">Court count</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 no-pad">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="matchWeekCount"
+                                       placeholder="Match week count..."
+                                       min="1" title="Enter the number of weeks during the season.">
+                                <label class="control-label" for="matchWeekCount">Match week count</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="button" class="btn btn-outline-primary" id="createPlan">Create plan</button>
+                        <button type="button" class="btn btn-outline-secondary" id="resetButton">Reset</button>
+                    </div>
+                </div>
+                <div class="col-md-3 gx-5 mb-3">
+                    <div class="form-group">
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectMon"
+                                   title="Select Monday as a match day.">
+                            <label class="form-check-label" for="selectMon">Monday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectTue"
+                                   title="Select Tuesday as a match day.">
+                            <label class="form-check-label" for="selectTue">Tuesday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectWed"
+                                   title="Select Wednesday as a match day.">
+                            <label class="form-check-label" for="selectWed">Wednesday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectThu"
+                                   title="Select Thursday as a match day.">
+                            <label class="form-check-label" for="selectThu">Thursday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectFri"
+                                   title="Select Friday as a match day.">
+                            <label class="form-check-label" for="selectFri">Friday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectSat"
+                                   title="Select Saturday as a match day.">
+                            <label class="form-check-label" for="selectSat">Saturday</label>
+                        </div>
+                        <div class="col-md-6 no-pad">
+                            <input class="form-check-input" type="checkbox" id="selectSun"
+                                   title="Select Sunday as a match day.">
+                            <label class="form-check-label" for="selectSun">Sunday</label>
                         </div>
                     </div>
                 </div>
-                <div class="form-group mb-3">
-                    <div class="col-md-12 no-pad">
-                        <div class="form-floating">
-                            <input type="number" class="form-control" id="courtCount" placeholder="Court count..." min="1"
-                                   title="Enter the amount of tennis courts which are available during a match day.">
-                            <label class="control-label" for="courtCount">Court count</label>
-                        </div>
+                <div class="col-md-6 gx-5">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" type="text" id="playerToAdd" placeholder="Player..."
+                               title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list.">
+                        <label class="control-label" for="playerToAdd">Player</label>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12 no-pad">
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="matchWeekCount" placeholder="Match week count..."
-                                   min="1" title="Enter the number of weeks during the season.">
-                            <label class="control-label" for="matchWeekCount">Match week count</label>
-                        </div>
+                    <div class="form-group mb-3">
+                        <button type="button" class="btn btn-outline-secondary" id="addPlayer">Add</button>
+                        <button type="button" class="btn btn-outline-secondary" id="removePlayer">Remove</button>
                     </div>
-                </div>
-               <div class="form-group mb-3">
-                   <button type="button" class="btn btn-outline-primary" id="createPlan">Create plan</button>
-                   <button type="button" class="btn btn-outline-secondary" id="resetButton">Reset</button>
-                </div>
-            </div>
-            <div class="col-md-3 gx-5 mb-3">
-                <div class="form-group">
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectMon" title="Select Monday as a match day.">
-                        <label class="form-check-label" for="selectMon">Monday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectTue" title="Select Tuesday as a match day.">
-                        <label class="form-check-label" for="selectTue">Tuesday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectWed" title="Select Wednesday as a match day.">
-                        <label class="form-check-label" for="selectWed">Wednesday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectThu" title="Select Thursday as a match day.">
-                        <label class="form-check-label" for="selectThu">Thursday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectFri" title="Select Friday as a match day.">
-                        <label class="form-check-label" for="selectFri">Friday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectSat" title="Select Saturday as a match day.">
-                        <label class="form-check-label" for="selectSat">Saturday</label>
-                    </div>
-                    <div class="col-md-6 no-pad">
-                        <input class="form-check-input" type="checkbox" id="selectSun" title="Select Sunday as a match day.">
-                        <label class="form-check-label" for="selectSun">Sunday</label>
+                    <div class="form-group mb-3">
+                        <ul class="list-group" id="playerList"></ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 gx-5">
-                <div class="form-floating mb-3">
-                    <input class="form-control" type="text" id="playerToAdd" placeholder="Player..."
-                           title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list.">
-                    <label class="control-label" for="playerToAdd">Player</label>
-                </div>
-                <div class="form-group mb-3">
-                    <button type="button" class="btn btn-outline-secondary" id="addPlayer">Add</button>
-                    <button type="button" class="btn btn-outline-secondary" id="removePlayer">Remove</button>
-                </div>
-                <div class="form-group mb-3">
-                    <ul class="list-group" id="playerList"></ul>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-<div class="container-fluid resultArea">
-    <div class="row no-pad">
-        <div class="col-md-12 mb-6">
+        </form>
+    </div>
+    <div class="container-fluid resultArea">
+        <div class="col-md-12 mb-6 pageBreak">
             <table id="matchListTable" class="table"></table>
         </div>
-    </div>
-    <div class="row mb-6">
-        <div class="col-md-2">
+        <div class="col-md-12 pageBreak">
             <table id="playersPlayedMatchesTable" class="table"></table>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-12 pageBreak">
             <table id="subCountTable" class="table"></table>
         </div>
+        <div class="col-md-12 pageBreak">
+            <table id="playersPlayedTogetherTable" class="table"></table>
+        </div>
+        <div class="col-md-12 pageBreak">
+            <table id="playersPlayedAgainstTable" class="table"></table>
+        </div>
     </div>
-    <div class="col-md-9 mb-6">
-        <table id="playersPlayedTogetherTable" class="table"></table>
-        <table id="playersPlayedAgainstTable" class="table"></table>
-    </div>
-</div>
 </main>
-<footer class="footer mt-auto py-3 bg-light">
+<footer class="footer mt-auto py-3 bg-light d-print-none">
     <div class="container text-center">
         <div class="row">
             <div class="offset-md-4 col-md-4">
-                <span class="text-muted text-center">v0.1</span>
+                <span class="text-muted text-center">v0.1.1</span>
             </div>
             <div class="col-md-4">
                 <span class="text-muted">Copyright © 2020 Julian Roggendorf</span>

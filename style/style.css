@@ -40,10 +40,6 @@ scroll-behavior: smooth;
     border-radius: .3rem;
 }
 @media print {
-    @page {
-        size: auto;
-        margin: 0;
-    }
     .pageBreak {
         break-inside: avoid;
     }

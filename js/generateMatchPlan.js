@@ -62,7 +62,7 @@ function generateMatchPlan() {
             text = document.createTextNode("Court " + (i + 1).toString());
             cell = row.insertCell(i + 1);
             cell.appendChild(text);
-            cell.colSpan = playersPerMatch;
+            cell.colSpan = 2*playersPerMatch - 1;
         }
         if (subCount > 0) {
             text = document.createTextNode("Substitutes");
@@ -148,13 +148,38 @@ function generateMatchPlan() {
             }
             cell.appendChild(appendDate);
             let formattingIndex = 0;
+            let formattingOffset = 0;
             for (let j = 0; j < participantsPerMatchDay; j++) {
                 if (j < participantsPerMatchDay - subCount) {
-                    cell = row.insertCell(j + 1);
+                    cell = row.insertCell(formattingIndex + formattingOffset + j + 1);
                     text = document.createTextNode(playerListText[seasonStats[0][i][j]]);
                     cell.appendChild(text);
+                    switch (formattingIndex % 4) {
+                        case 0:
+                            cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
+                            text = document.createTextNode("/");
+                            cell.appendChild(text);
+                            formattingIndex += 1;
+                            break;
+                        case 1:
+                            cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
+                            text = document.createTextNode("-");
+                            cell.appendChild(text);
+                            formattingIndex += 1;
+                            break;
+                        case 2:
+                            cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
+                            text = document.createTextNode("/");
+                            cell.appendChild(text);
+                            formattingIndex += 1;
+                            break;
+                        case 3:
+                            formattingIndex += 1;
+                            formattingOffset -= 1;
+                            break;
+                    }
                 } else {
-                    cell = row.insertCell(j + 1);
+                    cell = row.insertCell(formattingIndex + formattingOffset + j + 1);
                     text = document.createTextNode(playerListText[seasonStats[4][i][j - (participantsPerMatchDay - subCount)]]);
                     cell.appendChild(text);
                 }

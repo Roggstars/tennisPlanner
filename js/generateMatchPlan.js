@@ -1,4 +1,6 @@
 function generateMatchPlan() {
+    let userLang = document.getElementById("langselector").value;
+
     removeOldTables();
 
     // Get values from inputs
@@ -56,16 +58,28 @@ function generateMatchPlan() {
         let matchListTable = document.getElementById("matchListTable");
         row = matchListTable.insertRow(0);
         cell = row.insertCell(0);
-        text = document.createTextNode("Date");
+        if (userLang === "de") {
+            text = document.createTextNode("Datum");
+        } else {
+            text = document.createTextNode("Date");
+        }
         cell.appendChild(text);
         for (let i = 0; i < courtCount; i++) {
-            text = document.createTextNode("Court " + (i + 1).toString());
+            if (userLang === "de") {
+                text = document.createTextNode("Platz " + (i + 1).toString());
+            } else {
+                text = document.createTextNode("Court " + (i + 1).toString());
+            }
             cell = row.insertCell(i + 1);
             cell.appendChild(text);
             cell.colSpan = 2*playersPerMatch - 1;
         }
         if (subCount > 0) {
-            text = document.createTextNode("Substitutes");
+            if (userLang === "de") {
+                text = document.createTextNode("Ersatz");
+            } else {
+                text = document.createTextNode("Substitutes");
+            }
             cell = row.insertCell(courtCount + 1);
             cell.appendChild(text);
             cell.colSpan = subCount;
@@ -75,10 +89,18 @@ function generateMatchPlan() {
         let playersPlayedMatchesTable = document.getElementById("playersPlayedMatchesTable");
         row = playersPlayedMatchesTable.insertRow(0);
         cell = row.insertCell(0);
-        text = document.createTextNode("Player");
+        if (userLang === "de") {
+            text = document.createTextNode("Spieler");
+        } else {
+            text = document.createTextNode("Player");
+        }
         cell.appendChild(text);
         cell = row.insertCell(1);
-        text = document.createTextNode("Games played");
+        if (userLang === "de") {
+            text = document.createTextNode("Gespielte Spiele");
+        } else {
+            text = document.createTextNode("Games played");
+        }
         cell.appendChild(text);
 
         // Setup playersPlayedTogetherTable
@@ -116,11 +138,19 @@ function generateMatchPlan() {
             let subCountTable = document.getElementById("subCountTable");
             row = subCountTable.insertRow(0);
             cell = row.insertCell(0);
-            text = document.createTextNode("Player");
+            if (userLang === "de") {
+                text = document.createTextNode("Spieler");
+            } else {
+                text = document.createTextNode("Player");
+            }
             cell.appendChild(text);
             for (let i = 0; i < subCount; i++) {
                 cell = row.insertCell(i + 1);
-                text = document.createTextNode("Substitute " + (i + 1).toString());
+                if (userLang === "de") {
+                    text = document.createTextNode("Ersatz " + (i + 1).toString());
+                } else {
+                    text = document.createTextNode("Substitute " + (i + 1).toString());
+                }
                 cell.appendChild(text);
             }
         }
@@ -245,27 +275,51 @@ function generateMatchPlan() {
             }
         }
 
-        let scrollElement = document.getElementById("matchListTable");
+        let scrollElement = document.getElementById("matchListTableHeading");
         scrollElement.scrollIntoView();
     } else {
         switch (inputError) {
             case 1:
-                alert("Please enter a court count.");
+                if (userLang === "de") {
+                    alert("Bitte die Anzahl der Plätze eingeben.");
+                } else {
+                    alert("Please enter a court count.");
+                }
                 break;
             case 2:
-                alert("Please enter a start date.");
+                if (userLang === "de") {
+                    alert("Bitte das Startdatum eingeben.");
+                } else {
+                    alert("Please enter a start date.");
+                }
                 break;
             case 3:
-                alert("Please enter a week count for the season.");
+                if (userLang === "de") {
+                    alert("Bitte die Wochenanzahl eingeben.");
+                } else {
+                    alert("Please enter a week count for the season.");
+                }
                 break;
             case 4:
-                alert("No match dates selected.");
+                if (userLang === "de") {
+                    alert("Bitte die Spieltage auswählen.");
+                } else {
+                    alert("Please select the match days.");
+                }
                 break;
             case 5:
-                alert("Player list is empty.");
+                if (userLang === "de") {
+                    alert("Die Spielerliste ist leer.");
+                } else {
+                    alert("Player list is empty.");
+                }
                 break;
             case 6:
-                alert("Insufficient amount of players to fill all courts.");
+                if (userLang === "de") {
+                    alert("Zu wenige Spieler um alle Plätze zu füllen.");
+                } else {
+                    alert("Insufficient amount of players to fill all courts.");
+                }
                 break;
             default:
                 break;

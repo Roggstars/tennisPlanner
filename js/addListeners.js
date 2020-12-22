@@ -13,3 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("resetButton").addEventListener('click', clearList);
 });
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("langselector").addEventListener('change', changeLanguage)
+});

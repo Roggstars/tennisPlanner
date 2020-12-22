@@ -23,8 +23,8 @@
                     <option value="de">Deutsch</option>
                 </select>
             </div>
-            <h1>Tennis planner</h1>
-            <p>A tool to plan a tennis season of double matches.</p>
+            <h1 id="title">Tennis planner</h1>
+            <p id="subtitle">A tool to plan a tennis season of double matches.</p>
         </div>
     </div>
     <div class="container-fluid inputArea d-print-none">
@@ -36,7 +36,7 @@
                             <div class="form-floating mb-3">
                                 <input type="date" class="form-control" id="startDate"
                                        title="Enter the start date of the season.">
-                                <label class="control-label" for="startDate">Start date</label>
+                                <label id="startDateLabel" class="control-label" for="startDate">Start date</label>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 <input type="number" class="form-control" id="courtCount" placeholder="Court count..."
                                        min="1"
                                        title="Enter the amount of tennis courts which are available during a match day.">
-                                <label class="control-label" for="courtCount">Court count</label>
+                                <label id="courtCountLabel" class="control-label" for="courtCount">Court count</label>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <input type="number" class="form-control" id="matchWeekCount"
                                        placeholder="Match week count..."
                                        min="1" title="Enter the number of weeks during the season.">
-                                <label class="control-label" for="matchWeekCount">Match week count</label>
+                                <label id="matchWeekCountLabel" class="control-label" for="matchWeekCount">Match week count</label>
                             </div>
                         </div>
                     </div>
@@ -70,37 +70,37 @@
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectMon"
                                    title="Select Monday as a match day.">
-                            <label class="form-check-label" for="selectMon">Monday</label>
+                            <label id="selectMonLabel" class="form-check-label" for="selectMon">Monday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectTue"
                                    title="Select Tuesday as a match day.">
-                            <label class="form-check-label" for="selectTue">Tuesday</label>
+                            <label id="selectTueLabel" class="form-check-label" for="selectTue">Tuesday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectWed"
                                    title="Select Wednesday as a match day.">
-                            <label class="form-check-label" for="selectWed">Wednesday</label>
+                            <label id="selectWedLabel" class="form-check-label" for="selectWed">Wednesday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectThu"
                                    title="Select Thursday as a match day.">
-                            <label class="form-check-label" for="selectThu">Thursday</label>
+                            <label id="selectThuLabel" class="form-check-label" for="selectThu">Thursday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectFri"
                                    title="Select Friday as a match day.">
-                            <label class="form-check-label" for="selectFri">Friday</label>
+                            <label id="selectFriLabel" class="form-check-label" for="selectFri">Friday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectSat"
                                    title="Select Saturday as a match day.">
-                            <label class="form-check-label" for="selectSat">Saturday</label>
+                            <label id="selectSatLabel" class="form-check-label" for="selectSat">Saturday</label>
                         </div>
                         <div class="col-md-6 no-pad">
                             <input class="form-check-input" type="checkbox" id="selectSun"
                                    title="Select Sunday as a match day.">
-                            <label class="form-check-label" for="selectSun">Sunday</label>
+                            <label id="selectSunLabel" class="form-check-label" for="selectSun">Sunday</label>
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" type="text" id="playerToAdd" placeholder="Player..."
                                title="Enter a player's name and click &quot;Add player&quot; to add a player to the player list.">
-                        <label class="control-label" for="playerToAdd">Player</label>
+                        <label id="playerToAddLabel" class="control-label" for="playerToAdd">Player</label>
                     </div>
                     <div class="form-group mb-3">
                         <button type="button" class="btn btn-outline-secondary" id="addPlayer">Add</button>
@@ -148,7 +148,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="offset-md-4 col-md-4">
-                <span class="text-muted text-center">v0.1.5</span>
+                <span class="text-muted text-center">v0.2</span>
             </div>
             <div class="col-md-4">
                 <span class="text-muted">Copyright © 2020 Julian Roggendorf</span>
@@ -159,6 +159,7 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="js/generateMatchPlan.js"></script>
 <script src="js/getDateArray.js"></script>
 <script src="js/getSelectedWeekDays.js"></script>
@@ -173,4 +174,5 @@
 <script src="js/addListeners.js"></script>
 <script src="js/playerListManipulation.js"></script>
 <script src="js/removeOldTables.js"></script>
+<script src="js/language.js"></script>
 </html>

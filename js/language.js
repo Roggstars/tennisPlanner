@@ -31,7 +31,7 @@ function changeLanguage() {
     }
 
     let de = {
-        title: "Tennis Planer",
+        title: "Tennisplan",
         subtitle: "Ein Tool zum Erstellen eines Saisonplans für Tennis-Doppel.",
         startDate: "Startdatum",
         courtCount: "Platzanzahl",

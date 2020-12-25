@@ -4,9 +4,6 @@ background-color: #ababab;
 #matchListTable td {
 text-align: center;
 }
-#matchListTable tr {
-    line-height: 2em;
-}
 #playersPlayedMatchesTable tbody:nth-child(odd) tr:nth-child(odd) {
     background-color: #ababab;
 }

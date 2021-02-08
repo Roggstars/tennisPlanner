@@ -1,6 +1,6 @@
-function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, participantsPerMatch) {
+function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, participantsPerMatch, playersPerMatch) {
     // This function returns the optimized season plan.
-    let playersPlayingAtOnce = 4 * courtCount;
+    let playersPlayingAtOnce = playersPerMatch * courtCount;
 
     // Preallocate player metrics
     let playersPlayedMatches = Array(playerList.length).fill(0);
@@ -30,8 +30,10 @@ function getSeasonPlan(playerList, courtCount, subCount, matchDayCount, particip
         returnArray = getLeastPlayedTogether(matchList[i], mateWeights);
         matchList[i] = returnArray[0];
         mateWeights = returnArray[1];
-        returnArray = getLeastPlayedAgainst(matchList[i], opponentWeights);
-        matchList[i] = returnArray[0];
+        if (playersPerMatch === 4) {
+	    returnArray = getLeastPlayedAgainst(matchList[i], opponentWeights);
+            matchList[i] = returnArray[0];
+	}
         opponentWeights = returnArray[1];
         returnArray = getSubList(matchList[i], playersSubCount);
         subList[i] = returnArray[0];

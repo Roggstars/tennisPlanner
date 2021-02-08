@@ -21,7 +21,12 @@ function generateMatchPlan() {
     let dateArray = getDateArray(startDate, weekDayArray, matchWeekCount);
 
     // Participants calculation
-    let playersPerMatch = 4;
+    let playersPerMatch;
+    if (document.getElementById("matchTypeSelector").value === "single") {    
+	playersPerMatch = 2;
+    } else if (document.getElementById("matchTypeSelector").value === "double") {
+        playersPerMatch = 4;
+    }
     let subCount = playerListItems.length - playersPerMatch * courtCount;
     let participantsPerMatchDay = playersPerMatch * courtCount + subCount;
 
@@ -156,7 +161,7 @@ function generateMatchPlan() {
         }
 
         // Get results of optimization
-        let seasonStats = getSeasonPlan(playerListText, courtCount, subCount, dateArray.length, participantsPerMatchDay);
+        let seasonStats = getSeasonPlan(playerListText, courtCount, subCount, dateArray.length, participantsPerMatchDay, playersPerMatch);
 
         // Insert results in matchListTable
         let appendDate;
@@ -184,17 +189,25 @@ function generateMatchPlan() {
                     cell = row.insertCell(formattingIndex + formattingOffset + j + 1);
                     text = document.createTextNode(playerListText[seasonStats[0][i][j]]);
                     cell.appendChild(text);
-                    switch (formattingIndex % 4) {
+                    switch (formattingIndex % playersPerMatch) {
                         case 0:
-                            cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
-                            text = document.createTextNode("/");
-                            cell.appendChild(text);
+                	    cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
+                            if (playersPerMatch === 4) {
+				text = document.createTextNode("/");
+			    } else if (playersPerMatch === 2) {
+			        text = document.createTextNode("-");
+			    }
+			    cell.appendChild(text);
                             formattingIndex += 1;
                             break;
                         case 1:
-                            cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
-                            text = document.createTextNode("-");
-                            cell.appendChild(text);
+			    if (playersPerMatch == 4) {
+                                cell = row.insertCell(formattingIndex + formattingOffset + j + 2);
+                                text = document.createTextNode("-");
+                                cell.appendChild(text);
+			    } else if (playersPerMatch === 2) {
+				formattingOffset -= 1;
+			    }
                             formattingIndex += 1;
                             break;
                         case 2:

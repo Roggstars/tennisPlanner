@@ -28,6 +28,9 @@ function changeLanguage() {
         date: "Date",
         court: "Court",
         substitute: "Substitutes",
+	matchType: "Match type",
+	single: "Single",
+	double: "Double"
     }
 
     let de = {
@@ -55,7 +58,10 @@ function changeLanguage() {
         playedAgainst: "Anzahl Gegenspieler",
         date: "Datum",
         court: "Platz",
-        substitute: "Ersatz"
+        substitute: "Ersatz",
+	matchType: "Spielform",
+	single: "Einzel",
+	double: "Doppel"
     }
 
     let lang;
@@ -90,6 +96,9 @@ function changeLanguage() {
     document.getElementById("playersPlayedTogetherHeading").innerText = lang.playedTogether;
     document.getElementById("playersPlayedAgainstHeading").innerText = lang.playedAgainst;
     document.getElementById("subCountHeading").innerText = lang.substituteCounts;
+    document.getElementById("matchTypeSelectorLabel").innerText = lang.matchType;
+    document.getElementById("matchTypeSelector").options[0].text = lang.single;
+    document.getElementById("matchTypeSelector").options[1].text = lang.double;
 }
 
 let userLang = navigator.language.substring(0,2);

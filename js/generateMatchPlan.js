@@ -132,14 +132,14 @@ function generateMatchPlan() {
             cell.appendChild(text);
         }
 
-        document.getElementById("matchListTableHeading").style.visibility = "visible";
-        document.getElementById("playersPlayedMatchesHeading").style.visibility = "visible";
-        document.getElementById("playersPlayedTogetherHeading").style.visibility = "visible";
-        document.getElementById("playersPlayedAgainstHeading").style.visibility = "visible";
+        document.getElementById("matchListTableHeading").style.display = "";
+        document.getElementById("playersPlayedMatchesHeading").style.display = "";
+        document.getElementById("playersPlayedTogetherHeading").style.display = "";
+        document.getElementById("playersPlayedAgainstHeading").style.display = "";
 
         // Setup subCountTable
         if (subCount > 0) {
-            document.getElementById("subCountHeading").style.visibility = "visible";
+            document.getElementById("subCountHeading").style.display = "";
             let subCountTable = document.getElementById("subCountTable");
             row = subCountTable.insertRow(0);
             cell = row.insertCell(0);
